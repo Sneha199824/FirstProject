@@ -3,7 +3,7 @@ import { View, Text, Button, ActivityIndicator } from 'react-native';
 import axios from 'axios';
 
 export const Axois = () => {
-    const [data, setData] = useState(null);
+    const [data, setData] = useState([]);
     const [isLoading, setLoading] = useState(true);
 
     useEffect(() => {

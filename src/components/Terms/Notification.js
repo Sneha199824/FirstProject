@@ -2,6 +2,9 @@ import React, { Component,useState } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, Image, Dimensions, FlatList,  } from 'react-native';
 import Styles from '../Style/Styles';
 import { useNavigation } from '@react-navigation/native';
+import { PaymentReuest } from './PaymentRequest';
+import Payment from '../Payment';
+import Privacy from '../Privacy';
 
 
 const DATA = [
@@ -10,7 +13,8 @@ const DATA = [
         image: require('../../images/person.png'),
         name: 'Ajitabh Pandey',
         title: ' hired you for',
-        hobby: 'Gym training'
+        hobby: 'Gym training',
+        isTouchable: true
     },
     {
         id: 2,
@@ -64,7 +68,10 @@ const DATA = [
 ]
 
 const renderItem = ({ item, id }) => (
+      <TouchableOpacity
+     onPress={item.id === 1 ? () => props.navigation.navigate(Privacy) : null}
 
+      >
         <View style={style.container}>
             <View style={style.sideline}></View>
 
@@ -79,7 +86,7 @@ const renderItem = ({ item, id }) => (
                 </View>
             </View>
         </View>
-    
+    </TouchableOpacity>
 );
 
 
